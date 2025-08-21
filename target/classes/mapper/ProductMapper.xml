@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.batch.mapper.ProductMapper">
+    
+    <!-- 結果マッピング -->
+    <resultMap id="productResultMap" type="com.example.batch.entity.Product">
+        <id property="id" column="id"/>
+        <result property="productCode" column="product_code"/>
+        <result property="productName" column="product_name"/>
+        <result property="category" column="category"/>
+        <result property="price" column="price"/>
+        <result property="stockQuantity" column="stock_quantity"/>
+        <result property="description" column="description"/>
+        <result property="manufacturer" column="manufacturer"/>
+        <result property="releaseDate" column="release_date"/>
+        <result property="isActive" column="is_active"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+    
+    <!-- 全件取得 -->
+    <select id="selectAll" resultMap="productResultMap">
+        SELECT * FROM product ORDER BY id
+    </select>
+    
+    <!-- ページング取得 -->
+    <select id="selectWithPaging" resultMap="productResultMap">
+        SELECT * FROM product 
+        ORDER BY id
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+    
+    <!-- 商品コードで検索 -->
+    <select id="selectByProductCode" resultMap="productResultMap">
+        SELECT * FROM product 
+        WHERE product_code = #{productCode}
+    </select>
+    
+    <!-- カテゴリで検索 -->
+    <select id="selectByCategory" resultMap="productResultMap">
+        SELECT * FROM product 
+        WHERE category = #{category}
+        ORDER BY id
+    </select>
+    
+    <!-- 登録 -->
+    <insert id="insert" parameterType="com.example.batch.entity.Product" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO product (
+            product_code, product_name, category, price, stock_quantity,
+            description, manufacturer, release_date, is_active
+        ) VALUES (
+            #{productCode}, #{productName}, #{category}, #{price}, #{stockQuantity},
+            #{description}, #{manufacturer}, #{releaseDate}, #{isActive}
+        )
+    </insert>
+    
+    <!-- 更新 -->
+    <update id="update" parameterType="com.example.batch.entity.Product">
+        UPDATE product SET
+            product_code = #{productCode},
+            product_name = #{productName},
+            category = #{category},
+            price = #{price},
+            stock_quantity = #{stockQuantity},
+            description = #{description},
+            manufacturer = #{manufacturer},
+            release_date = #{releaseDate},
+            is_active = #{isActive},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE id = #{id}
+    </update>
+    
+    <!-- 削除 -->
+    <delete id="delete">
+        DELETE FROM product WHERE id = #{id}
+    </delete>
+    
+    <!-- 全件削除 -->
+    <delete id="deleteAll">
+        DELETE FROM product
+    </delete>
+    
+    <!-- 件数取得 -->
+    <select id="count" resultType="int">
+        SELECT COUNT(*) FROM product
+    </select>
+</mapper>

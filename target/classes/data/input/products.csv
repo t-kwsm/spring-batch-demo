@@ -1,0 +1,11 @@
+product_code,product_name,category,price,stock_quantity,description,manufacturer,release_date,is_active
+PRD004,Desktop Monitor 27,Electronics,450.00,80,4K UHD Monitor,DisplayTech,2023-02-10,true
+PRD005,Mechanical Keyboard,Accessories,120.00,120,RGB Gaming Keyboard,KeyMaster,2022-11-05,true
+PRD006,Webcam HD,Electronics,85.00,200,1080p HD Webcam,CamTech,2023-04-15,true
+PRD007,Office Chair Pro,Furniture,550.00,40,Ergonomic Office Chair,ComfortSeating,2022-08-20,true
+PRD008,Wireless Headphones,Audio,180.00,95,Noise-Cancelling Headphones,AudioPro,2023-01-25,true
+PRD009,External SSD 1TB,Storage,150.00,160,High-Speed External SSD,StoragePlus,2022-12-10,true
+PRD010,Smart Speaker,Electronics,99.00,110,Voice-Controlled Speaker,SmartHome,2023-03-05,true
+PRD011,Laptop Stand,Accessories,45.00,250,Adjustable Laptop Stand,DeskSolutions,2022-09-15,true
+PRD012,HDMI Cable 2m,Accessories,15.00,500,4K HDMI Cable,CablePro,2023-05-01,true
+PRD013,Power Bank 20000mAh,Electronics,65.00,180,Fast-Charging Power Bank,PowerTech,2022-10-20,true

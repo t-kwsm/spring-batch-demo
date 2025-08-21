@@ -1,0 +1,72 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.example'
+version = '1.0.0-SNAPSHOT'
+description = 'Spring Batch CSV Processing Demo with MyBatis'
+
+java {
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Boot Starter
+    implementation 'org.springframework.boot:spring-boot-starter'
+    
+    // Spring Batch
+    implementation 'org.springframework.boot:spring-boot-starter-batch'
+    
+    // MyBatis
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+    
+    // H2 Database
+    runtimeOnly 'com.h2database:h2'
+    
+    // JDBC
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    
+    // Validation
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    
+    // OpenCSV for flexible CSV handling
+    implementation 'com.opencsv:opencsv:5.9'
+    
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    
+    // Test dependencies
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.batch:spring-batch-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+// Encoding settings
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+// Spring Boot run task configuration
+bootRun {
+    if (project.hasProperty('args')) {
+        args project.args.split(',')
+    }
+}

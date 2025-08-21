@@ -1,0 +1,11 @@
+employee_code,first_name,last_name,email,department,position,salary,hire_date,status
+EMP004,Jiro,Sato,jiro.sato@example.com,Engineering,Junior Engineer,55000.00,2022-04-01,ACTIVE
+EMP005,Yuki,Watanabe,yuki.watanabe@example.com,Marketing,Marketing Manager,70000.00,2020-10-15,ACTIVE
+EMP006,Miki,Ito,miki.ito@example.com,Finance,Accountant,58000.00,2021-06-01,ACTIVE
+EMP007,Ken,Yamamoto,ken.yamamoto@example.com,Engineering,Tech Lead,90000.00,2019-03-20,ACTIVE
+EMP008,Rie,Nakamura,rie.nakamura@example.com,HR,HR Manager,72000.00,2020-01-10,ACTIVE
+EMP009,Takeshi,Kobayashi,takeshi.kobayashi@example.com,Sales,Sales Representative,48000.00,2023-02-15,ACTIVE
+EMP010,Ayumi,Yoshida,ayumi.yoshida@example.com,Engineering,Senior Engineer,82000.00,2018-09-01,ACTIVE
+EMP011,Daiki,Yamada,daiki.yamada@example.com,Marketing,Marketing Specialist,52000.00,2022-07-20,ACTIVE
+EMP012,Naomi,Sasaki,naomi.sasaki@example.com,Finance,Finance Manager,85000.00,2017-11-15,ACTIVE
+EMP013,Hiroshi,Matsumoto,hiroshi.matsumoto@example.com,Engineering,Software Architect,95000.00,2016-05-01,ACTIVE

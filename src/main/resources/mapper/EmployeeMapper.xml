@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.batch.mapper.EmployeeMapper">
+    
+    <!-- 結果マッピング -->
+    <resultMap id="employeeResultMap" type="com.example.batch.entity.Employee">
+        <id property="id" column="id"/>
+        <result property="employeeCode" column="employee_code"/>
+        <result property="firstName" column="first_name"/>
+        <result property="lastName" column="last_name"/>
+        <result property="email" column="email"/>
+        <result property="department" column="department"/>
+        <result property="position" column="position"/>
+        <result property="salary" column="salary"/>
+        <result property="hireDate" column="hire_date"/>
+        <result property="status" column="status"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+    
+    <!-- 全件取得 -->
+    <select id="selectAll" resultMap="employeeResultMap">
+        SELECT * FROM employee ORDER BY id
+    </select>
+    
+    <!-- ページング取得 -->
+    <select id="selectWithPaging" resultMap="employeeResultMap">
+        SELECT * FROM employee 
+        ORDER BY id
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+    
+    <!-- 従業員コードで検索 -->
+    <select id="selectByEmployeeCode" resultMap="employeeResultMap">
+        SELECT * FROM employee 
+        WHERE employee_code = #{employeeCode}
+    </select>
+    
+    <!-- 登録 -->
+    <insert id="insert" parameterType="com.example.batch.entity.Employee" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO employee (
+            employee_code, first_name, last_name, email, 
+            department, position, salary, hire_date, status
+        ) VALUES (
+            #{employeeCode}, #{firstName}, #{lastName}, #{email},
+            #{department}, #{position}, #{salary}, #{hireDate}, #{status}
+        )
+    </insert>
+    
+    <!-- 更新 -->
+    <update id="update" parameterType="com.example.batch.entity.Employee">
+        UPDATE employee SET
+            employee_code = #{employeeCode},
+            first_name = #{firstName},
+            last_name = #{lastName},
+            email = #{email},
+            department = #{department},
+            position = #{position},
+            salary = #{salary},
+            hire_date = #{hireDate},
+            status = #{status},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE id = #{id}
+    </update>
+    
+    <!-- 削除 -->
+    <delete id="delete">
+        DELETE FROM employee WHERE id = #{id}
+    </delete>
+    
+    <!-- 全件削除 -->
+    <delete id="deleteAll">
+        DELETE FROM employee
+    </delete>
+    
+    <!-- 件数取得 -->
+    <select id="count" resultType="int">
+        SELECT COUNT(*) FROM employee
+    </select>
+</mapper>
