@@ -42,8 +42,13 @@ dependencies {
     // Validation
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     
-    // OpenCSV for flexible CSV handling
-    implementation 'com.opencsv:opencsv:5.9'
+    // Jackson CSV for flexible CSV handling
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.16.0'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.16.0'
+    
+    // JasperReports
+    implementation 'net.sf.jasperreports:jasperreports:6.21.2'
+    implementation 'net.sf.jasperreports:jasperreports-fonts:6.21.2'
     
     // Lombok
     compileOnly 'org.projectlombok:lombok'

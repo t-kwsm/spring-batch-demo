@@ -56,3 +56,28 @@ CREATE INDEX idx_product_code ON product(product_code);
 CREATE INDEX idx_product_category ON product(category);
 CREATE INDEX idx_sales_transaction ON sales(transaction_id);
 CREATE INDEX idx_sales_date ON sales(sale_date);
+
+-- JasperReports用のemployeesテーブル（既存のemployeeテーブルとは別）
+DROP TABLE IF EXISTS employees;
+CREATE TABLE employees (
+    employee_id VARCHAR(10) PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    department VARCHAR(50),
+    salary DECIMAL(10,2),
+    hire_date DATE
+);
+
+-- サンプルデータ挿入
+INSERT INTO employees (employee_id, first_name, last_name, email, department, salary, hire_date) VALUES
+('EMP001', 'John', 'Doe', 'john.doe@example.com', 'Engineering', 85000.00, '2020-01-15'),
+('EMP002', 'Jane', 'Smith', 'jane.smith@example.com', 'Marketing', 75000.00, '2019-03-22'),
+('EMP003', 'Michael', 'Johnson', 'michael.j@example.com', 'Sales', 70000.00, '2021-06-10'),
+('EMP004', 'Emily', 'Brown', 'emily.brown@example.com', 'Engineering', 95000.00, '2018-11-05'),
+('EMP005', 'David', 'Wilson', 'david.wilson@example.com', 'HR', 65000.00, '2020-08-17'),
+('EMP006', 'Sarah', 'Davis', 'sarah.davis@example.com', 'Finance', 80000.00, '2019-12-01'),
+('EMP007', 'Robert', 'Miller', 'robert.m@example.com', 'Engineering', 90000.00, '2017-09-20'),
+('EMP008', 'Lisa', 'Garcia', 'lisa.garcia@example.com', 'Marketing', 72000.00, '2021-02-14'),
+('EMP009', 'James', 'Martinez', 'james.m@example.com', 'Sales', 68000.00, '2020-05-30'),
+('EMP010', 'Jennifer', 'Anderson', 'jennifer.a@example.com', 'HR', 70000.00, '2019-07-12');
