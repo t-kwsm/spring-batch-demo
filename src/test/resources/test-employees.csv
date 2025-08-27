@@ -1,0 +1,6 @@
+employee_code,first_name,last_name,email,department,position,salary,hire_date,status
+EMP000001,John,Doe,john.doe@example.com,開発部,エンジニア,5000000,2020-01-15,ACTIVE
+EMP000002,Jane,Smith,jane.smith@example.com,営業部,マネージャー,6000000,2019-03-20,ACTIVE
+EMP000003,Bob,Johnson,bob.johnson@example.com,人事部,担当者,4500000,2021-06-10,ACTIVE
+EMP000004,Alice,Williams,alice.williams@example.com,経理部,主任,5500000,2018-11-25,ACTIVE
+EMP000005,Charlie,Brown,charlie.brown@example.com,総務部,部長,7000000,2017-08-05,ACTIVE
